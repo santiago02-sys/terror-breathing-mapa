@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://8edqnaxmj0lw"]
+
+[ext_resource type="Script" uid="uid://b4xthhlj7lo5x" path="res://heart.gd" id="1_4ukho"]
+[ext_resource type="Script" uid="uid://dpfmpfupflopx" path="res://pulse_line.gd" id="1_varxk"]
+[ext_resource type="AudioStream" uid="uid://bchgr5dyr35og" path="res://habitacion/textures/Latido.wav" id="2_g4v3y"]
+
+[node name="BreathingSystem" type="Control" unique_id=1880537009]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="ColorRect" parent="." unique_id=513349459]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1112.0
+offset_bottom = 608.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.043137256, 0.043137256, 0.043137256, 1)
+
+[node name="HeartLine" type="ColorRect" parent="." unique_id=1149123197]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 320.0
+offset_right = 1001.0
+offset_bottom = 324.0
+color = Color(0.72156864, 0.72156864, 0.72156864, 1)
+
+[node name="Heart" type="Polygon2D" parent="." unique_id=1366419674]
+position = Vector2(551, 297)
+color = Color(0.9137255, 0.15294118, 0.16862746, 1)
+polygon = PackedVector2Array(25, 45, 5, 25, 5, 12, 15, 5, 25, 15, 35, 5, 45, 12, 45, 25)
+script = ExtResource("1_4ukho")
+
+[node name="HeartbeatSound" type="AudioStreamPlayer2D" parent="Heart" unique_id=2072331311]
+stream = ExtResource("2_g4v3y")
+
+[node name="PulseLine" type="Line2D" parent="." unique_id=1508158433]
+position = Vector2(898.4833, 320)
+points = PackedVector2Array(-40, 0, -15, 0, -8, -20, 0, 40, 8, -15, 20, 0, 40, 0)
+width = 4.0
+script = ExtResource("1_varxk")
+
+[node name="ResultText" type="Label" parent="." unique_id=1762849306]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 60.0
+offset_right = 876.0
+offset_bottom = 380.0
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+
+[node name="SuspicionBar" type="ProgressBar" parent="." unique_id=2032666305]
+layout_mode = 0
+offset_left = 426.0
+offset_top = 450.0
+offset_right = 726.0
+offset_bottom = 477.0
+
+[node name="StressBar" type="ProgressBar" parent="." unique_id=1897954668]
+layout_mode = 0
+offset_left = 1080.0
+offset_top = 40.0
+offset_right = 1110.0
+offset_bottom = 240.0
